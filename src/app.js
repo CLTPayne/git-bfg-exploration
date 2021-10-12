@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 const Secret = () => {
-    const newSecret = "COOL_SECRET"
+    const newSecret = process.env.SECRET_STRING
     return (
         <Fragment>
             <p>secrets are snazzy</p>
@@ -13,7 +13,6 @@ const Secret = () => {
 const App = () => (
     <div>
         Hello we have secrets:
-        <p>COOL_SECRET</p>
         <p>moving stuff around but still having secrets</p>
         <Secret />
     </div>
