@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
 
-const secret = "***REMOVED***"
+const secret = "COOL_SECRET"
 
 ReactDOM.render(
     <App secret={secret} />, 
