@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const secret = "***REMOVED***"
+const Secret = () => {
+    const newSecret = "***REMOVED***"
+    return (
+        <Fragment>
+            <p>secrets are snazzy</p>
+            <p>like this one: {newSecret}</p>
+        </Fragment>
+    )
+}
 
 const App = () => (
     <div>
         Hello we have secrets:
-        <p>***REMOVED*** & {secret}</p>
+        <p>***REMOVED***</p>
+        <p>moving stuff around but still having secrets</p>
+        <Secret />
     </div>
 )
 
