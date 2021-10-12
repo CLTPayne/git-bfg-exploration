@@ -1,8 +1,11 @@
 import React from 'react';
 
+const secret = "***REMOVED***"
+
 const App = () => (
     <div>
-        Hello
+        Hello we have secrets:
+        <p>***REMOVED*** & {secret}</p>
     </div>
 )
 
