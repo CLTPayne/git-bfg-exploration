@@ -62,3 +62,33 @@ git push --force
 ```
 
 NOTE: You will see errors for the non updated PR references when pushing to GitHub. These can only be removed by GitHub customer service.
+
+#### What to do if you've lost something!
+
+A few days after the PRs diffs and references had been deleted I noticed some missing documentation in our project. I could see the PR merged to `main` successfully so my guess is that I must have not merged the PR before I made the `--mirror` clone and did the history rewrite, or I somehow was missing some commits. Luckily it was my own PR so I spotted it… and it was only documentation (although it was a lot of info and I’d deleted the notes I had used to create it).
+
+I still had the `--mirror` clone I had made the changes to locally and a back up of the repository (a regular clone though).
+
+Gooling to understand what I had left in the `--mirror` cloned `.git` repo, this was the most useful and got me to the stage of viewing the PR ref I had lost and needed (`pull/26/` in my case)! https://www.jvt.me/posts/2019/01/19/git-ref-github-pull-requests/
+
+1. Show all the available references (which I could also see in the `packed-refs` file):
+
+```
+git show-ref
+```
+
+2. Log the last commit for the PR you want to restore:
+
+```
+git log -1 pull/26/head
+```
+
+3. Log the content of that commit:
+
+```
+git show -1 pull/26/head
+```
+
+All the info I needed was in a single commit and it was markdown so I just copied the logged changes from this command, then recommitted them to the project in a new PR.
+
+I'm sure there are better ways to do this recovery but I was very glad I still had the `--mirror` clone and recommend keeping it for a few weeks after the PR refs are removed!
